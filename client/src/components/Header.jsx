@@ -1,3 +1,4 @@
+//flowbite for ui components for tailwind css
 import { Navbar, TextInput, Button } from "flowbite-react";
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
@@ -7,8 +8,10 @@ import { FaMoon } from "react-icons/fa";
 
 const Header = () => {
   const path = useLocation().pathname;
+  //we can use hashcode colours by importing it in tailwindconfig.js and using it in here
   return (
     <Navbar className="border-b-2">
+
       <Link
         to="/"
         className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
@@ -18,6 +21,8 @@ const Header = () => {
         </span>
         Blog
       </Link>
+
+
       <form>
         <TextInput
           type="text"
@@ -26,14 +31,17 @@ const Header = () => {
           required
           color="gray"
           rightIcon={AiOutlineSearch}
-          className="hidden lg:inline"
+          className="hidden lg:inline"//only visible in larger screens >1024
         />
       </form>
-      <Button className="w-11 h-9 lg:hidden" color="gray" pill>
+
+      <Button className="w-11 h-9 lg:hidden" color="gray" pill >
         <LuSearch />
       </Button>
+
       <div className="flex gap-2 md:order-2">
-        <Button className="w-11 h-9 hidden sm:inline" color="gray" pill>
+        <Button className="w-11 h-9 hidden sm:inline" color="gray" pill //button will be visible only in small screens >624 which means it is not visible in mobiles
+        >
           <FaMoon />
         </Button>
         <Link to="/sign-in">
@@ -41,6 +49,7 @@ const Header = () => {
         </Link>
         <Navbar.Toggle />
       </div>
+
       <Navbar.Collapse>
         <Navbar.Link active={path === "/"} as={'div'}>
           <Link to="/">Home</Link>
