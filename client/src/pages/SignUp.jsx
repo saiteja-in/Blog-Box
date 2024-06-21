@@ -1,5 +1,6 @@
-import React from 'react'
-import blog from '../photos/blogs.png'
+import React from "react";
+import blog from "../photos/blogs.png";
+import { Button } from "flowbite-react";
 const SignUp = () => {
   return (
     <>
@@ -8,7 +9,7 @@ const SignUp = () => {
           <div class="flex items-center justify-center px-4 py-10 bg-white sm:px-6 lg:px-8 sm:py-16 lg:py-24">
             <div class="xl:w-full xl:max-w-sm 2xl:max-w-md xl:mx-auto">
               <h2 class="text-3xl font-bold leading-tight text-black sm:text-4xl">
-                Sign up 
+                Sign up
               </h2>
               <p class="mt-2 text-base text-gray-600">
                 Already have an account?{" "}
@@ -21,19 +22,18 @@ const SignUp = () => {
                 </a>
               </p>
 
-              <form action="#" method="POST" class="mt-8">
+              <form action="" method="" class="mt-8">
                 <div class="space-y-5">
                   <div>
                     <label for="" class="text-base font-medium text-gray-900">
-                      {" "}
-                      Full Name{" "}
+                      Username
                     </label>
                     <div class="mt-2.5">
                       <input
                         type="text"
                         name=""
-                        id=""
-                        placeholder="Enter your full name"
+                        id="username"
+                        placeholder="Enter your Username"
                         class="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
                       />
                     </div>
@@ -41,14 +41,13 @@ const SignUp = () => {
 
                   <div>
                     <label for="" class="text-base font-medium text-gray-900">
-                      {" "}
-                      Email address{" "}
+                      Email address
                     </label>
                     <div class="mt-2.5">
                       <input
                         type="email"
                         name=""
-                        id=""
+                        id="email"
                         placeholder="Enter email to get started"
                         class="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
                       />
@@ -57,34 +56,27 @@ const SignUp = () => {
 
                   <div>
                     <label for="" class="text-base font-medium text-gray-900">
-                      {" "}
-                      Password{" "}
+                      Password
                     </label>
                     <div class="mt-2.5">
                       <input
                         type="password"
                         name=""
-                        id=""
+                        id="password"
                         placeholder="Enter your password"
                         class="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
                       />
                     </div>
                   </div>
 
-                
-
                   <div>
-                    <button
-                      type="submit"
-                      class="inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-white transition-all duration-200 bg-blue-600 border border-transparent rounded-md focus:outline-none hover:bg-blue-700 focus:bg-blue-700"
-                    >
-                      Create free account
-                    </button>
+                    <Button gradientDuoTone="purpleToPink" className="w-full py-2">Create free account</Button>
                   </div>
                 </div>
               </form>
 
               <div class="mt-3 space-y-3">
+
                 <button
                   type="button"
                   class="relative inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-gray-700 transition-all duration-200 bg-white border-2 border-gray-200 rounded-md hover:bg-gray-100 focus:bg-gray-100 hover:text-black focus:text-black focus:outline-none"
@@ -101,6 +93,7 @@ const SignUp = () => {
                   </div>
                   Sign up with Google
                 </button>
+                
               </div>
             </div>
           </div>
@@ -111,7 +104,7 @@ const SignUp = () => {
                 class="w-full mx-auto"
                 src={blog}
                 alt=""
-                style={{ maxWidth: '400px' }} // Set maximum width to 300px
+                style={{ maxWidth: "400px" }} // Set maximum width to 300px
               />
 
               <div class="w-full max-w-md mx-auto xl:max-w-xl">
@@ -121,15 +114,13 @@ const SignUp = () => {
                 <p class="leading-relaxed text-center text-gray-500 mt-2.5">
                   hasta la vista
                 </p>
-
-            
               </div>
             </div>
           </div>
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default SignUp
+export default SignUp;
