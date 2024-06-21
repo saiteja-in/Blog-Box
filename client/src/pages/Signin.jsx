@@ -4,62 +4,62 @@ import { Button } from "flowbite-react";
 const Signin = () => {
   return (
     <>
-      <section class="bg-white">
-        <div class="grid grid-cols-1 lg:grid-cols-2">
-          <div class="flex items-center justify-center px-4 py-10 bg-white sm:px-6 lg:px-8 sm:py-16 lg:py-24">
-            <div class="xl:w-full xl:max-w-sm 2xl:max-w-md xl:mx-auto">
-              <h2 class="text-3xl font-bold leading-tight text-black sm:text-4xl">
+      <section className="bg-white">
+        <div className="grid grid-cols-1 lg:grid-cols-2">
+          <div className="flex items-center justify-center px-4 py-10 bg-white sm:px-6 lg:px-8 sm:py-16 lg:py-24">
+            <div className="xl:w-full xl:max-w-sm 2xl:max-w-md xl:mx-auto">
+              <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl">
                 Sign in
               </h2>
-              <p class="mt-2 text-base text-gray-600">
+              <p className="mt-2 text-base text-gray-600">
                 Don’t have an account?{" "}
                 <a
                   href="/sign-up"
                   title=""
-                  class="font-medium text-blue-600 transition-all duration-200 hover:text-blue-700 hover:underline focus:text-blue-700"
+                  className="font-medium text-blue-600 transition-all duration-200 hover:text-blue-700 hover:underline focus:text-blue-700"
                 >
                   Create a free account
                 </a>
               </p>
 
-              <form action="" method="" class="mt-8">
-                <div class="space-y-5">
+              <form action="" method="" className="mt-8">
+                <div className="space-y-5">
                   <div>
-                    <label for="" class="text-base font-medium text-gray-900">
+                    <label htmlFor="" className="text-base font-medium text-gray-900">
                       Email address
                     </label>
-                    <div class="mt-2.5">
+                    <div className="mt-2.5">
                       <input
                         type="email"  
                         name=""
                         id="email"
                         placeholder="Enter email to get started"
-                        class="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
+                        className="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <div class="flex items-center justify-between">
-                      <label for="" class="text-base font-medium text-gray-900">
+                    <div className="flex items-center justify-between">
+                      <label htmlFor="" className="text-base font-medium text-gray-900">
                         Password
                       </label>
 
                       <a
                         href="#"
                         title=""
-                        class="text-sm font-medium text-blue-600 hover:underline hover:text-blue-700 focus:text-blue-700"
+                        className="text-sm font-medium text-blue-600 hover:underline hover:text-blue-700 focus:text-blue-700"
                       >
                         Forgot password?
                       </a>
                     </div>
-                    <div class="mt-2.5">
+                    <div className="mt-2.5">
                       <input
                         type="password"
                         name=""
                         id="password"
                         placeholder="Enter your password"
-                        class="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
+                        className="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
                       />
                     </div>
                   </div>
@@ -70,14 +70,14 @@ const Signin = () => {
                 </div>
               </form>
 
-              <div class="mt-3 space-y-3">
+              <div className="mt-3 space-y-3">
                 <button
                   type="button"
-                  class="relative inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-gray-700 transition-all duration-200 bg-white border-2 border-gray-200 rounded-md hover:bg-gray-100 focus:bg-gray-100 hover:text-black focus:text-black focus:outline-none"
+                  className="relative inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-gray-700 transition-all duration-200 bg-white border-2 border-gray-200 rounded-md hover:bg-gray-100 focus:bg-gray-100 hover:text-black focus:text-black focus:outline-none"
                 >
-                  <div class="absolute inset-y-0 left-0 p-4">
+                  <div className="absolute inset-y-0 left-0 p-4">
                     <svg
-                      class="w-6 h-6 text-rose-500"
+                      className="w-6 h-6 text-rose-500"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
                       fill="currentColor"
@@ -91,20 +91,20 @@ const Signin = () => {
             </div>
           </div>
 
-          <div class="flex items-center justify-center px-4 py-10 sm:py-16 lg:py-24 bg-gray-50 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-center px-4 py-10 sm:py-16 lg:py-24 bg-gray-50 sm:px-6 lg:px-8">
             <div>
               <img
-                class="w-full mx-auto"
+                className="w-full mx-auto"
                 src={blog}
                 alt=""
                 style={{ maxWidth: '400px' }} // Set maximum width to 300px
               />
 
-              <div class="w-full max-w-md mx-auto xl:max-w-xl">
-                <h3 class="text-2xl font-bold text-center text-black">
+              <div className="w-full max-w-md mx-auto xl:max-w-xl">
+                <h3 className="text-2xl font-bold text-center text-black">
                   Write your own blog
                 </h3>
-                <p class="leading-relaxed text-center text-gray-500 mt-2.5">
+                <p className="leading-relaxed text-center text-gray-500 mt-2.5">
                   hasta la vista
                 </p>
 
