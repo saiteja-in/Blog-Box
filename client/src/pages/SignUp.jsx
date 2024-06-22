@@ -33,9 +33,20 @@ const SignUp = () => {
       console.log(data);
       if(data.message==="User created successfully"){
         toast.success("Account created successfully");
+        toast.success('Redirecting to Login Page.', {
+          style: {
+            border: '1px solid #713200',
+            padding: '16px',
+            color: '#713200',
+          },
+          iconTheme: {
+            primary: '#713200',
+            secondary: '#FFFAEE',
+          },
+        });
         setTimeout(() => {
           navigate("/sign-in");
-        }, 1000);
+        }, 2000);
       }
       if(data.success===false){
         toast.error("User already exists");
