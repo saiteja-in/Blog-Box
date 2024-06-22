@@ -1,9 +1,72 @@
-import React from "react";
-import blog from '../photos/blogs.png'
-import { Button } from "flowbite-react";
+import React, { useState } from "react";
+import blog from "../photos/blogs.png";
+import { Button, Spinner } from "flowbite-react";
+import { useNavigate } from "react-router-dom";
+import { Toaster,toast } from "react-hot-toast";
 const Signin = () => {
+  const navigate=useNavigate();
+const [formData,setFormData]=useState({})
+const [errorMessage, setErrorMessage] = useState(null);
+const [loading, setLoading] = useState(false);
+const handleChange=(e)=>{
+  setFormData({...formData,[e.target.id]:e.target.value.trim()})
+}
+
+const handleSubmit=async(e)=>{
+  e.preventDefault();
+  if(!formData.email || !formData.password){
+    setErrorMessage("All fields are required");
+    toast.error("All fields are required")
+    return;
+  }
+  try {
+    setLoading(true);
+    setErrorMessage(null);
+    const res=await fetch("/api/auth/signin",{
+      method:"POST",
+      body:JSON.stringify(formData),
+      headers:{
+        "Content-Type":"application/json",
+      },
+    });
+    const data=await res.json();
+    console.log(data)
+    if(data.message==="User logged in successfully"){
+      toast.success("Logged in successfully")
+      toast.success('Redirecting to Login Page.', {
+        style: {
+          border: '1px solid #713200',
+          padding: '16px',
+          color: '#713200',
+        },
+        iconTheme: {
+          primary: '#713200',
+          secondary: '#FFFAEE',
+        },
+      });
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+    }
+    if(data.success===false && data.message==="Invalid credentials"){
+      toast.error("Invalid credentials")
+    }
+    if(data.success===false && data.message==="User not found"){
+      toast.error("User not found")
+    }
+    setLoading(false);
+  } catch (error) {
+    toast.error("Server error")
+    setErrorMessage(error.message)
+    setLoading(false)
+  }
+}
+  
   return (
     <>
+    <div>
+        <Toaster position="top-center" reverseOrder={false} />
+      </div>
       <section className="bg-white ">
         <div className="grid grid-cols-1 lg:grid-cols-2 ">
           <div className="flex items-center justify-center px-4 py-10 bg-white sm:px-6 lg:px-8 sm:py-16 lg:py-24">
@@ -22,17 +85,21 @@ const Signin = () => {
                 </a>
               </p>
 
-              <form action="" method="" className="mt-8">
+              <form className="mt-8" onSubmit={handleSubmit}>
                 <div className="space-y-5">
                   <div>
-                    <label htmlFor="" className="text-base font-medium text-gray-900">
+                    <label
+                      htmlFor="email"
+                      className="text-base font-medium text-gray-900"
+                    >
                       Email address
                     </label>
                     <div className="mt-2.5">
                       <input
-                        type="email"  
-                        name=""
+                        type="email"
+                        name="email"
                         id="email"
+                        onChange={handleChange}
                         placeholder="Enter email to get started"
                         className="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
                       />
@@ -41,7 +108,10 @@ const Signin = () => {
 
                   <div>
                     <div className="flex items-center justify-between">
-                      <label htmlFor="" className="text-base font-medium text-gray-900">
+                      <label
+                        htmlFor="password"
+                        className="text-base font-medium text-gray-900"
+                      >
                         Password
                       </label>
 
@@ -56,8 +126,9 @@ const Signin = () => {
                     <div className="mt-2.5">
                       <input
                         type="password"
-                        name=""
+                        name="password"
                         id="password"
+                        onChange={handleChange}
                         placeholder="Enter your password"
                         className="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
                       />
@@ -65,9 +136,17 @@ const Signin = () => {
                   </div>
 
                   <div>
-                    <Button gradientDuoTone="purpleToPink" className="w-full py-2">Log in</Button>
+                    <Button
+                      gradientDuoTone="purpleToPink"
+                      className="w-full py-2"
+                      type="submit"
+                      disabled={loading}
+                    >
+                      {loading?(<Spinner size="sm" color="white" />):"Log in"}
+                    </Button>
                   </div>
                 </div>
+                {/* <div>{errorMessage && <p className="text-red-500">{errorMessage}</p>}</div> */}
               </form>
 
               <div className="mt-3 space-y-3">
@@ -97,7 +176,7 @@ const Signin = () => {
                 className="w-full mx-auto"
                 src={blog}
                 alt=""
-                style={{ maxWidth: '400px' }} // Set maximum width to 300px
+                style={{ maxWidth: "400px" }} // Set maximum width to 300px
               />
 
               <div className="w-full max-w-md mx-auto xl:max-w-xl">
@@ -107,8 +186,6 @@ const Signin = () => {
                 <p className="leading-relaxed text-center text-gray-500 mt-2.5">
                   hasta la vista
                 </p>
-
-              
               </div>
             </div>
           </div>
