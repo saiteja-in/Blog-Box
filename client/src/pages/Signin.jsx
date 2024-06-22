@@ -3,11 +3,15 @@ import blog from "../photos/blogs.png";
 import { Button, Spinner } from "flowbite-react";
 import { useNavigate } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
+import {signInStart,signInSuccess,signInFailure} from "../redux/user/userSlice"
+import { useDispatch,useSelector } from "react-redux";
 const Signin = () => {
   const navigate = useNavigate();
+  const dispatch=useDispatch();
   const [formData, setFormData] = useState({});
-  const [errorMessage, setErrorMessage] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const{loading}=useSelector((state)=>state.user);
+  // const [errorMessage, setErrorMessage] = useState(null);
+  // const [loading, setLoading] = useState(false);
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value.trim() });
   };
@@ -20,8 +24,7 @@ const Signin = () => {
       return;
     }
     try {
-      setLoading(true);
-      setErrorMessage(null);
+      dispatch(signInStart());
       const res = await fetch("/api/auth/signin", {
         method: "POST",
         body: JSON.stringify(formData),
@@ -32,6 +35,7 @@ const Signin = () => {
       const data = await res.json();
       console.log(data);
       if (data.message === "User logged in successfully") {
+        dispatch(signInSuccess(data.user));
         toast.success("Logged in successfully");
         toast.success("Redirecting to Login Page.", {
           style: {
@@ -48,17 +52,20 @@ const Signin = () => {
           navigate("/");
         }, 2000);
       }
+      // if (!data.success) {
+      //   dispatch(signInFailure(data.message));
+      // }
       if (data.success === false && data.message === "Invalid credentials") {
+        dispatch(signInFailure(data.message));
         toast.error("Invalid credentials");
       }
       if (data.success === false && data.message === "User not found") {
+        dispatch(signInFailure(data.message));
         toast.error("User not found");
       }
-      setLoading(false);
     } catch (error) {
       toast.error("Server error");
-      setErrorMessage(error.message);
-      setLoading(false);
+      dispatch(signInFailure(error.message));
     }
   };
 
@@ -196,3 +203,4 @@ const Signin = () => {
 };
 
 export default Signin;
+
