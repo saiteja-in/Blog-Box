@@ -2,69 +2,69 @@ import React, { useState } from "react";
 import blog from "../photos/blogs.png";
 import { Button, Spinner } from "flowbite-react";
 import { useNavigate } from "react-router-dom";
-import { Toaster,toast } from "react-hot-toast";
+import { Toaster, toast } from "react-hot-toast";
 const Signin = () => {
-  const navigate=useNavigate();
-const [formData,setFormData]=useState({})
-const [errorMessage, setErrorMessage] = useState(null);
-const [loading, setLoading] = useState(false);
-const handleChange=(e)=>{
-  setFormData({...formData,[e.target.id]:e.target.value.trim()})
-}
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({});
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value.trim() });
+  };
 
-const handleSubmit=async(e)=>{
-  e.preventDefault();
-  if(!formData.email || !formData.password){
-    setErrorMessage("All fields are required");
-    toast.error("All fields are required")
-    return;
-  }
-  try {
-    setLoading(true);
-    setErrorMessage(null);
-    const res=await fetch("/api/auth/signin",{
-      method:"POST",
-      body:JSON.stringify(formData),
-      headers:{
-        "Content-Type":"application/json",
-      },
-    });
-    const data=await res.json();
-    console.log(data)
-    if(data.message==="User logged in successfully"){
-      toast.success("Logged in successfully")
-      toast.success('Redirecting to Login Page.', {
-        style: {
-          border: '1px solid #713200',
-          padding: '16px',
-          color: '#713200',
-        },
-        iconTheme: {
-          primary: '#713200',
-          secondary: '#FFFAEE',
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!formData.email || !formData.password) {
+      setErrorMessage("All fields are required");
+      toast.error("All fields are required");
+      return;
+    }
+    try {
+      setLoading(true);
+      setErrorMessage(null);
+      const res = await fetch("/api/auth/signin", {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json",
         },
       });
-      setTimeout(() => {
-        navigate("/");
-      }, 2000);
+      const data = await res.json();
+      console.log(data);
+      if (data.message === "User logged in successfully") {
+        toast.success("Logged in successfully");
+        toast.success("Redirecting to Login Page.", {
+          style: {
+            border: "1px solid #713200",
+            padding: "16px",
+            color: "#713200",
+          },
+          iconTheme: {
+            primary: "#713200",
+            secondary: "#FFFAEE",
+          },
+        });
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
+      }
+      if (data.success === false && data.message === "Invalid credentials") {
+        toast.error("Invalid credentials");
+      }
+      if (data.success === false && data.message === "User not found") {
+        toast.error("User not found");
+      }
+      setLoading(false);
+    } catch (error) {
+      toast.error("Server error");
+      setErrorMessage(error.message);
+      setLoading(false);
     }
-    if(data.success===false && data.message==="Invalid credentials"){
-      toast.error("Invalid credentials")
-    }
-    if(data.success===false && data.message==="User not found"){
-      toast.error("User not found")
-    }
-    setLoading(false);
-  } catch (error) {
-    toast.error("Server error")
-    setErrorMessage(error.message)
-    setLoading(false)
-  }
-}
-  
+  };
+
   return (
     <>
-    <div>
+      <div>
         <Toaster position="top-center" reverseOrder={false} />
       </div>
       <section className="bg-white ">
@@ -142,7 +142,7 @@ const handleSubmit=async(e)=>{
                       type="submit"
                       disabled={loading}
                     >
-                      {loading?(<Spinner size="sm" color="white" />):"Log in"}
+                      {loading ? <Spinner size="sm" color="white" /> : "Log in"}
                     </Button>
                   </div>
                 </div>

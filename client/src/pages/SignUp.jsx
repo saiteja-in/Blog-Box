@@ -2,10 +2,10 @@ import React from "react";
 import blog from "../photos/blogs.png";
 import { Button, Spinner } from "flowbite-react";
 import { useState } from "react";
-import { Toaster,toast } from "react-hot-toast";
+import { Toaster, toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 const SignUp = () => {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({});
   const [errorMessage, setErrorMessage] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -21,7 +21,7 @@ const SignUp = () => {
     }
     try {
       setLoading(true);
-      setErrorMessage(null);//to clear the previous error message
+      setErrorMessage(null); //to clear the previous error message
       const res = await fetch("/api/auth/signup", {
         method: "POST",
         body: JSON.stringify(formData),
@@ -31,27 +31,27 @@ const SignUp = () => {
       });
       const data = await res.json();
       console.log(data);
-      if(data.message==="User created successfully"){
+      if (data.message === "User created successfully") {
         toast.success("Account created successfully");
-        toast.success('Redirecting to Login Page.', {
+        toast.success("Redirecting to Login Page.", {
           style: {
-            border: '1px solid #713200',
-            padding: '16px',
-            color: '#713200',
+            border: "1px solid #713200",
+            padding: "16px",
+            color: "#713200",
           },
           iconTheme: {
-            primary: '#713200',
-            secondary: '#FFFAEE',
+            primary: "#713200",
+            secondary: "#FFFAEE",
           },
         });
         setTimeout(() => {
           navigate("/sign-in");
         }, 2000);
       }
-      if(data.success===false){
+      if (data.success === false) {
         toast.error("User already exists");
       }
-      setLoading(false)
+      setLoading(false);
     } catch (error) {
       //here in the client side errors ,mostly due to network issue
       toast.error("Server error");
@@ -149,7 +149,11 @@ const SignUp = () => {
                       type="submit"
                       disabled={loading}
                     >
-                      {loading ? (<Spinner size="sm" color="white" />) : "Create free account"}
+                      {loading ? (
+                        <Spinner size="sm" color="white" />
+                      ) : (
+                        "Create free account"
+                      )}
                     </Button>
                   </div>
                 </div>
