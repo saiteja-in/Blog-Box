@@ -72,12 +72,12 @@ const Signin = () => {
   };
 
   return (
-    <>
+    <div>
       <div>
         <Toaster position="top-center" reverseOrder={false} />
       </div>
-      <section className="bg-white ">
-        <div className="grid grid-cols-1 lg:grid-cols-2 ">
+      {/* <section className="bg-white "> */}
+        <div className=" grid grid-cols-1 lg:grid-cols-2 ">
           <div className="flex items-center justify-center px-4 py-10 bg-white sm:px-6 lg:px-8 sm:py-16 lg:py-24">
             <div className="xl:w-full xl:max-w-sm 2xl:max-w-md xl:mx-auto py-10">
               <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl">
@@ -200,8 +200,8 @@ const Signin = () => {
             </div>
           </div>
         </div>
-      </section>
-    </>
+      {/* </section> */}
+    </div>
   );
 };
 
