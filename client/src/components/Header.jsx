@@ -52,11 +52,14 @@ const Header = () => {
           {currentUser ?(
           <Dropdown arrowIcon={false} inline label={<Avatar alt="user" img={currentUser.profilePicture} rounded />} >
             <Dropdown.Header>
-              <span className="block text-sm font-medium text-gray-700">@{currentUser.username}</span> 
+              <span className="block text-sm font-medium text-white-300">@{currentUser.username}</span> 
               <span className="block truncate text-sm text-gray-900 font-medium">{currentUser.email}</span>
             </Dropdown.Header>
             <Dropdown.Item>
               <Link to="/dashboard?tab=profile">Profile</Link>
+            </Dropdown.Item>
+            <Dropdown.Item>
+              <Link to="/dashboard">Dashboard</Link>
             </Dropdown.Item>
            
             <Dropdown.Divider/>
