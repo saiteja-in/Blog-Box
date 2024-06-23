@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
 import {signInStart,signInSuccess,signInFailure} from "../redux/user/userSlice"
 import { useDispatch,useSelector } from "react-redux";
+import OAuth from "../components/OAuth";
 const Signin = () => {
   const navigate = useNavigate();
   const dispatch=useDispatch();
@@ -19,7 +20,8 @@ const Signin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.email || !formData.password) {
-      setErrorMessage("All fields are required");
+      // setErrorMessage("All fields are required");
+      dispatch(signInFailure("All fields are required"));
       toast.error("All fields are required");
       return;
     }
@@ -153,10 +155,11 @@ const Signin = () => {
                     </Button>
                   </div>
                 </div>
+                <OAuth/>
                 {/* <div>{errorMessage && <p className="text-red-500">{errorMessage}</p>}</div> */}
               </form>
 
-              <div className="mt-3 space-y-3">
+              {/* <div className="mt-3 space-y-3">
                 <button
                   type="button"
                   className="relative inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-gray-700 transition-all duration-200 bg-white border-2 border-gray-200 rounded-md hover:bg-gray-100 focus:bg-gray-100 hover:text-black focus:text-black focus:outline-none"
@@ -173,7 +176,7 @@ const Signin = () => {
                   </div>
                   Sign in with Google
                 </button>
-              </div>
+              </div> */}
             </div>
           </div>
 

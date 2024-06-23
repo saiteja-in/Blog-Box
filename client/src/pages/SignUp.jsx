@@ -4,6 +4,7 @@ import { Button, Spinner } from "flowbite-react";
 import { useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import OAuth from "../components/OAuth";
 const SignUp = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({});
@@ -157,10 +158,11 @@ const SignUp = () => {
                     </Button>
                   </div>
                 </div>
+                <OAuth/>
                 {/* <div>{errorMessage && <p className="text-red-500">{errorMessage}</p>}</div> */}
               </form>
 
-              <div className="mt-3 space-y-3">
+              {/* <div className="mt-3 space-y-3">
                 <button
                   type="button"
                   className="relative inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-gray-700 transition-all duration-200 bg-white border-2 border-gray-200 rounded-md hover:bg-gray-100 focus:bg-gray-100 hover:text-black focus:text-black focus:outline-none"
@@ -177,7 +179,7 @@ const SignUp = () => {
                   </div>
                   Sign up with Google
                 </button>
-              </div>
+              </div> */}
             </div>
           </div>
 
