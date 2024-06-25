@@ -58,9 +58,9 @@ const Header = () => {
             <Dropdown.Item>
               <Link to="/dashboard?tab=profile">Profile</Link>
             </Dropdown.Item>
-            <Dropdown.Item>
+            {/* <Dropdown.Item>
               <Link to="/dashboard">Dashboard</Link>
-            </Dropdown.Item>
+            </Dropdown.Item> */}
            
             <Dropdown.Divider/>
             <Dropdown.Item>
