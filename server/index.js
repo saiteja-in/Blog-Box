@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRoute from "./routes/user.route.js";
 import authRoute from "./routes/auth.route.js";
+import cookieParser from "cookie-parser";
 
 dotenv.config();
 mongoose
@@ -15,8 +16,9 @@ mongoose
   });
 const app = express();
 app.use(express.json());
+app.use(cookieParser())
 
-const PORT = 3000;
+const PORT = process.env.PORT
 
 app.use("/api/user",userRoute);
 app.use("/api/auth",authRoute);
@@ -31,4 +33,4 @@ app.use((err,req,res,next)=>{
     });
 })
 
-app.listen(PORT, () => console.log("server started"));
+app.listen(PORT, () => console.log(`server started on port ${PORT}`));
