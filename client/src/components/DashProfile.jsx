@@ -18,6 +18,7 @@ import {
   deleteUserStart,
   deleteUserSuccess,
   deleteUserFailure,
+  signoutSuccess,
 } from "../redux/user/userSlice";
 import { useDispatch } from "react-redux";
 import "react-circular-progressbar/dist/styles.css";
@@ -144,6 +145,24 @@ const DashProfile = () => {
       dispatch(deleteUserFailure(error.message))
     }
   };
+  const handleSignout=async()=>{
+    try {
+      const res=await fetch('/api/user/signout',{
+        method:"POST",
+        headers:{
+          "Content-Type": "application/json",
+        },
+      })
+      const data=await res.json()
+      if(!res.ok){
+        toast.error(data.message)
+      }else{
+        dispatch(signoutSuccess())
+      }
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }
   return (
     <>
       <Toaster position="top-center" reverseOrder={false} />
@@ -225,7 +244,7 @@ const DashProfile = () => {
         </form>
         <div className="text-red-500 flex justify-between">
           <span onClick={()=>setShowModal(true)} className="cursor-pointer">Delete Account</span>
-          <span className="cursor-pointer">Sign out</span>
+          <span onClick={handleSignout} className="cursor-pointer">Sign out</span>
         </div>
         {updateUserSuccess && (
           <Alert color="success" className="mt-5">

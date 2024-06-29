@@ -7,12 +7,33 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { LuSearch } from "react-icons/lu";
 import { FaMoon } from "react-icons/fa";
 import { useSelector,useDispatch } from "react-redux";
+import { signoutSuccess } from "../redux/user/userSlice.js";
 import { toggleTheme } from "../redux/theme/themeSlice.js";
 const Header = () => {
   const dispatch=useDispatch();
   const {theme}=useSelector((state)=>state.theme);
   const{currentUser}=useSelector((state)=>state.user);
   const path = useLocation().pathname;
+  const handleSignout=async()=>{
+    try {
+      const res=await fetch('/api/user/signout',{
+        method:"POST",
+        headers:{
+          "Content-Type": "application/json",
+        },
+      })
+      const data=await res.json()
+      if(!res.ok){
+        // toast.error(data.message)
+        console.log(data.message)
+      }else{
+        dispatch(signoutSuccess())
+      }
+    } catch (error) {
+      // toast.error(error.message)
+      console.log(error.message);
+    }
+  }
   //we can use hashcode colours by importing it in tailwindconfig.js and using it in here
   return (
     <div className="">
@@ -63,8 +84,8 @@ const Header = () => {
             </Dropdown.Item> */}
            
             <Dropdown.Divider/>
-            <Dropdown.Item>
-              <Link to="/logout">Logout</Link>
+            <Dropdown.Item onClick={handleSignout}>
+              Logout
             </Dropdown.Item>
           </Dropdown>) :
           (<Link to="/sign-in">
