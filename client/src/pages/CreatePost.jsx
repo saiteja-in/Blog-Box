@@ -12,6 +12,7 @@ import { app } from "../firebase";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import toast, { Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 // import { Input } from 'flowbite-react';
 
@@ -19,7 +20,10 @@ const CreatePost = () => {
   const [formData, setFormData] = useState({});
   const [file, setFile] = useState(null);
   const [imageUploadProgress, setImageUploadProgress] = useState(null);
+  const [publishError,setPublishError]=useState(null)
+  const [publishLoading,setPublishLoading]=useState(false)
   const [imageUploadError, setImageUploadError] = useState(null);
+  const navigate=useNavigate()
 
   const handleUploadImage = async () => {
     try {
@@ -57,9 +61,39 @@ const CreatePost = () => {
       console.log(error);
     }
   };
-  console.log(formData);
-  console.log(imageUploadProgress);
-  console.log(imageUploadError);
+  const handleSubmit =async (e) => {
+    e.preventDefault();
+    try {
+        setPublishLoading(true)
+        const res=await fetch('/api/post/create-post',{
+            method:'POST',
+            headers: {
+                'Content-Type': 'application/json',
+              },
+            body:JSON.stringify(formData)
+        })
+        const data=await res.json()
+        console.log(data)
+        if(!res.ok){
+            setPublishError(data.message)
+            setPublishLoading(false)
+            return;
+        }
+        if(res.ok){
+            setPublishError(null)
+            setPublishLoading(false)
+            toast.success("Post published successfully")
+            setTimeout(() => {
+                navigate(`/posts/${data.slug}`)
+            }, 1000)
+        }
+        
+    } catch (error) {
+        setPublishError("Something went wrong")
+        setPublishLoading(false)
+    }
+  };
+ 
   return (
     <div>
       <div>
@@ -67,7 +101,7 @@ const CreatePost = () => {
       </div>
       <div className="p-3 max-w-3xl mx-auto min-h-screen">
         <h1 className="text-3xl text-center my-7 font-bold">Create a Post</h1>
-        <form className="flex flex-col gap-4">
+        <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <div className="flex flex-col gap-4 sm:flex-row justify-between">
             <TextInput
               type="text"
@@ -75,8 +109,9 @@ const CreatePost = () => {
               label="Title"
               placeholder="Title"
               className="flex-1"
+              onChange={(e) => setFormData({ ...formData, title: e.target.value })}
             />
-            <Select id="category" label="Category">
+            <Select id="category" label="Category" onChange={(e) => setFormData({ ...formData, category: e.target.value })}>
               <option value="uncategorized">select a category</option>
               <option value="movies">Movies</option>
               <option value="tvshows">TV Shows</option>
@@ -115,7 +150,7 @@ const CreatePost = () => {
             <Alert color="failure">{imageUploadError}</Alert>
           )}
            {formData.image && (
-            <div className="w-full h-64 flex justify-center items-center">
+            <div className="w-full h-full flex justify-center items-center">
               <img
                 src={formData.image}
                 alt="upload"
@@ -129,10 +164,14 @@ const CreatePost = () => {
             className="h-72 mb-11"
             required
             id="content"
+            onChange={(value)=>{setFormData({...formData, content: value})}}
           />
-          <Button type="submit" gradientDuoTone="purpleToBlue" outline>
-            Publish
+          <Button type="submit" gradientDuoTone="purpleToBlue" outline disabled={publishLoading}>
+            {publishLoading ? "Publishing..." : "Publish"}
           </Button>
+          {publishError && (
+            <Alert className="mt-4" color="failure">{publishError}</Alert>
+          )}
         </form>
       </div>
     </div>
