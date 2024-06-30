@@ -35,7 +35,8 @@ const OAuth = () => {
         if(res.ok){
             dispatch(signInSuccess(data.user));
             console.log(data)
-            toast.success('signed in successfully');
+            toast.success('Logged in successfully');
+            toast.success('Redirecting to Home Page');
             setTimeout(()=>{
                 navigate('/');
             },2000);

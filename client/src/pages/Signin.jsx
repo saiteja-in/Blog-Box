@@ -39,7 +39,7 @@ const Signin = () => {
       if (data.message === "User logged in successfully") {
         dispatch(signInSuccess(data.user));
         toast.success("Logged in successfully");
-        toast.success("Redirecting to Login Page.", {
+        toast.success("Redirecting to Home Page.", {
           style: {
             border: "1px solid #713200",
             padding: "16px",
@@ -52,7 +52,7 @@ const Signin = () => {
         });
         setTimeout(() => {
           navigate("/");
-        }, 2000);
+        }, 1000);
       }
       // if (!data.success) {
       //   dispatch(signInFailure(data.message));
