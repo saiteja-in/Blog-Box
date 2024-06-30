@@ -22,10 +22,11 @@ import {
 } from "../redux/user/userSlice";
 import { useDispatch } from "react-redux";
 import "react-circular-progressbar/dist/styles.css";
+import { Link } from "react-router-dom";
 
 const DashProfile = () => {
   const dispatch = useDispatch();
-  const { currentUser } = useSelector((state) => state.user);
+  const { currentUser,loading } = useSelector((state) => state.user);
   const [file, setFile] = useState(null);
   const filePickerRef = useRef(null);
   const [imageFileUrl, setImageFileUrl] = useState(null);
@@ -238,9 +239,18 @@ const DashProfile = () => {
             // className='mt-4 w-full'
             // onChange={(e) => setName(e.target.value)}
           />
-          <Button gradientDuoTone="purpleToPink" outline type="submit">
-            Update
+          <Button gradientDuoTone="purpleToPink" outline type="submit" disabled={loading||imageFileUploading}>
+            {loading||imageFileUploading?"Loading...":"Update"}
           </Button>
+          {
+            currentUser.isAdmin && (
+              <Link to={'/create-post'}>
+                <Button gradientDuoTone="purpleToPink" outline type="button" className="w-full">
+                  Create a Post
+                </Button>
+              </Link>
+            )
+          }
         </form>
         <div className="text-red-500 flex justify-between">
           <span onClick={()=>setShowModal(true)} className="cursor-pointer">Delete Account</span>
