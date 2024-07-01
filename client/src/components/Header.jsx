@@ -76,15 +76,16 @@ const Header = () => {
               <span className="block text-sm font-medium text-white-300">@{currentUser.username}</span> 
               <span className="block truncate text-sm text-gray-900 font-medium">{currentUser.email}</span>
             </Dropdown.Header>
-            <Dropdown.Item>
-              <Link to="/dashboard?tab=profile">Profile</Link>
+            <Dropdown.Item as={Link} to="/dashboard?tab=profile">
+              Profile
             </Dropdown.Item>
-            {/* <Dropdown.Item>
-              <Link to="/dashboard">Dashboard</Link>
-            </Dropdown.Item> */}
+            <Dropdown.Divider/>
+            <Dropdown.Item as={Link} to="/dashboard?tab=dash">
+              Dashboard
+            </Dropdown.Item>
            
             <Dropdown.Divider/>
-            <Dropdown.Item onClick={handleSignout}>
+            <Dropdown.Item as="button" onClick={handleSignout}>
               Logout
             </Dropdown.Item>
           </Dropdown>) :
