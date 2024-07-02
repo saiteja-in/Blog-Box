@@ -4,6 +4,7 @@ const DashDashboard = () => {
   return (
     <div>
       heyyyy
+      here we will render the posts 
     </div>
   )
 }
