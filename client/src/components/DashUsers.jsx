@@ -103,15 +103,21 @@ export default function DashUsers() {
                     )}
                   </Table.Cell>
                   <Table.Cell>
-                    <span
-                      onClick={() => {
-                        setShowModal(true);
-                        setUserIdToDelete(user._id);
-                      }}
-                      className='font-medium text-red-500 hover:underline cursor-pointer'
-                    >
-                      Delete
-                    </span>
+                  {user.isAdmin ? (
+                      <span className='font-medium text-gray-400 cursor-not-allowed'>
+                        Delete
+                      </span>
+                    ) : (
+                      <span
+                        onClick={() => {
+                          setShowModal(true);
+                          setUserIdToDelete(user._id);
+                        }}
+                        className='font-medium text-red-500 hover:underline cursor-pointer'
+                      >
+                        Delete
+                      </span>
+                    )}
                   </Table.Cell>
                 </Table.Row>
               </Table.Body>
