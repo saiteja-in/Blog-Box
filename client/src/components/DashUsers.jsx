@@ -41,7 +41,7 @@ export default function DashUsers() {
           ...prev,
           ...data.users.filter(user => user._id !== currentUser._id)
         ]);
-        if (data.users.length < 9) {
+        if (data.users.length < 10) {
           setShowMore(false);
         }
       }
