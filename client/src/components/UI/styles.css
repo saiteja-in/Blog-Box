@@ -1,4 +1,4 @@
-/* @tailwind base;
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -36,4 +36,4 @@
       0% 66.6%,
       100%;
   }
-} */
+}
