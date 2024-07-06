@@ -1,8 +1,8 @@
 import { Modal, Table, Button } from 'flowbite-react';
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
 import { FaCheck, FaTimes } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
 
 export default function DashUsers() {
   const { currentUser } = useSelector((state) => state.user);
@@ -10,13 +10,14 @@ export default function DashUsers() {
   const [showMore, setShowMore] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [userIdToDelete, setUserIdToDelete] = useState('');
+
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         const res = await fetch(`/api/user/getusers`);
         const data = await res.json();
         if (res.ok) {
-          setUsers(data.users);
+          setUsers(data.users.filter(user => user._id !== currentUser._id));
           if (data.users.length < 9) {
             setShowMore(false);
           }
@@ -28,7 +29,7 @@ export default function DashUsers() {
     if (currentUser.isAdmin) {
       fetchUsers();
     }
-  }, [currentUser._id]);
+  }, [currentUser]);
 
   const handleShowMore = async () => {
     const startIndex = users.length;
@@ -36,7 +37,10 @@ export default function DashUsers() {
       const res = await fetch(`/api/user/getusers?startIndex=${startIndex}`);
       const data = await res.json();
       if (res.ok) {
-        setUsers((prev) => [...prev, ...data.users]);
+        setUsers((prev) => [
+          ...prev,
+          ...data.users.filter(user => user._id !== currentUser._id)
+        ]);
         if (data.users.length < 9) {
           setShowMore(false);
         }
@@ -48,18 +52,18 @@ export default function DashUsers() {
 
   const handleDeleteUser = async () => {
     try {
-        const res = await fetch(`/api/user/delete/${userIdToDelete}`, {
-            method: 'DELETE',
-        });
-        const data = await res.json();
-        if (res.ok) {
-            setUsers((prev) => prev.filter((user) => user._id !== userIdToDelete));
-            setShowModal(false);
-        } else {
-            console.log(data.message);
-        }
+      const res = await fetch(`/api/user/delete/${userIdToDelete}`, {
+        method: 'DELETE',
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setUsers((prev) => prev.filter((user) => user._id !== userIdToDelete));
+        setShowModal(false);
+      } else {
+        console.log(data.message);
+      }
     } catch (error) {
-        console.log(error.message);
+      console.log(error.message);
     }
   };
 
