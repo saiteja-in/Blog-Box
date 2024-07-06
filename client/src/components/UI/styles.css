@@ -1,0 +1,39 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    background: hsl(73, 39%, 76%);
+  }
+}
+
+@layer components {
+  .map-image {
+    background-image: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.5) 0%,
+        rgba(0, 0, 0, 0) 30%
+      ),
+      url("https://plus.unsplash.com/premium_photo-1664112065830-5819554d0ec2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-size: 300%;
+  }
+
+  .map-image:nth-child(1) {
+    background-position:
+      0% 0%,
+      0%;
+  }
+
+  .map-image:nth-child(2) {
+    background-position:
+      0% 33.3%,
+      50%;
+  }
+
+  .map-image:nth-child(3) {
+    background-position:
+      0% 66.6%,
+      100%;
+  }
+} */

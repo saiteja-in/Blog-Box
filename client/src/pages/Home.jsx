@@ -1,9 +1,10 @@
 import React from 'react'
+// import FoldableMap from '../components/UI/FoldableMap'
 
 const Home = () => {
   return (
-    <div>
-      home
+    <div className='min-h-screen'>
+      {/* <FoldableMap /> */}
     </div>
   )
 }
