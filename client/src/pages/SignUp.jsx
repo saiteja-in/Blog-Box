@@ -47,7 +47,7 @@ const SignUp = () => {
         });
         setTimeout(() => {
           navigate("/sign-in");
-        }, 1000);
+        }, 500);
       }
       if (data.success === false) {
         toast.error("User already exists");

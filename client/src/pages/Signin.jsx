@@ -52,7 +52,7 @@ const Signin = () => {
         });
         setTimeout(() => {
           navigate("/");
-        }, 1000);
+        }, 500);
       }
       // if (!data.success) {
       //   dispatch(signInFailure(data.message));
