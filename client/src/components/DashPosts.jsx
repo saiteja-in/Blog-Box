@@ -68,7 +68,7 @@ const DashPosts = () => {
     console.log(data);
   }
   return (
-    <div className="w-full overflow-x-scroll md:mx-auto p- scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500">
+    <div className="w-full p-3 overflow-x-scroll md:mx-auto p- scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500">
       {currentUser.isAdmin && userPosts.length > 0 ? (
         <>
           <Table hoverable className="w-full shadow-md">

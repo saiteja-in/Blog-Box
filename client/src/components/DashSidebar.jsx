@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { BsFillPeopleFill } from "react-icons/bs";
 import { signoutSuccess } from "../redux/user/userSlice.js";
 import {useSelector} from 'react-redux'
 import {
@@ -79,6 +80,13 @@ const DashSidebar = () => {
               <Link to="/dashboard?tab=posts">
                 <Sidebar.Item active={tab === "posts"} icon={HiInboxIn} as="div">
                   Posts
+                </Sidebar.Item>
+              </Link>
+            </div>
+            <div className="mb-4">
+              <Link to="/dashboard?tab=users">
+                <Sidebar.Item active={tab === "users"} icon={BsFillPeopleFill} as="div">
+                  Users
                 </Sidebar.Item>
               </Link>
             </div>
