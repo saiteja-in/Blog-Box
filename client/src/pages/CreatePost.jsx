@@ -84,7 +84,7 @@ const CreatePost = () => {
             setPublishLoading(false)
             toast.success("Post published successfully")
             setTimeout(() => {
-                navigate(`/posts/${data.slug}`)
+                navigate(`/post/${data.slug}`)
             }, 1000)
         }
         
