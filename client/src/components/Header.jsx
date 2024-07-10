@@ -36,8 +36,8 @@ const Header = () => {
   }
   //we can use hashcode colours by importing it in tailwindconfig.js and using it in here
   return (
-    <div className="">
-      <Navbar className="border-b-2">
+    <div className="sticky top-0">
+      <Navbar className="border-b-2 dark:bg-gray-900">
         <Link
           to="/"
           className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
