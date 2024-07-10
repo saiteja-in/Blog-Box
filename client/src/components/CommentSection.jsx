@@ -20,6 +20,10 @@ const CommentSection = ({ postId }) => {
     if (comment.length > 200) {
       return;
     }
+    if (comment.length == 0) {
+      setCommentError("Dont be a dick, add a comment and submit");
+      return;
+    }
     try {
       setCommentError(null);
       const res = await fetch("/api/comment/createComment", {
