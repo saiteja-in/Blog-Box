@@ -61,6 +61,10 @@ const CommentSection = ({ postId }) => {
     getComments();
   },[a,postId])
 
+  const handleEdit=async(comment,editedContent)=>{
+    setComments(comments.map((c)=>c._id === comment._id ? {...c,content:editedContent}:c))
+  }
+
   const handleLike=async(commentId)=>{
     try {
       if (!currentUser) {
@@ -148,7 +152,7 @@ const CommentSection = ({ postId }) => {
         <p>{comments.length}</p>
         </div>  
       </div>
-      {comments.map(comment=>(<Comment key={comment._id} comment={comment} onLike={handleLike}/>))}
+      {comments.map(comment=>(<Comment key={comment._id} comment={comment} onLike={handleLike} onEdit={handleEdit}/>))}
         </>
       )}
     </div>
