@@ -11,6 +11,7 @@ const PostPage = () => {
   const [post, setPosts] = useState(null);
   const [recentPosts,setRecentPosts]=useState(null)
   const [error, setError] = useState(null);
+  
 
   useEffect(() => {
     console.log(postSlug);
