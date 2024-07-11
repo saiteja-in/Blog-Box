@@ -8,13 +8,11 @@ import { HoverEffect } from "../components/UI/CardHoverEffect";
 const Home = () => {
   const { currentUser } = useSelector((state) => state.user);
   const [recentPosts,setRecentPosts]=useState(null)
-  // const words =currentUser ? (`Hey ${currentUser.username}, are you really that free that you are reading my blogs? Go get some shit done`):(`Welome to the Blog,sarle kani first login avvu`);
   const words =currentUser ? (`Everything is a copy of a copy of a copy`):(`Welome to the Blog,sarle kani first login avvu`);
-  const ww="Everything is a copy of a copy of a copy"
   useEffect(() => {
     try {
       const fetchRecentPosts = async () => {
-        const res = await fetch(`/api/post/getposts?limit=3`);
+        const res = await fetch(`/api/post/getposts?limit=6`);
         const data = await res.json();
         console.log(data.posts);
         if (res.ok) {
