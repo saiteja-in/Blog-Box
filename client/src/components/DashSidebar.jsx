@@ -15,6 +15,7 @@ import {
 } from "react-icons/hi";
 import { Sidebar } from "flowbite-react";
 import { Link, useLocation } from "react-router-dom";
+import { FaComment, FaCommentAlt } from "react-icons/fa";
 const DashSidebar = () => {
   const {currentUser}=useSelector((state)=>state.user)
   // console.log(currentUser)
@@ -80,6 +81,13 @@ const DashSidebar = () => {
               <Link to="/dashboard?tab=posts">
                 <Sidebar.Item active={tab === "posts"} icon={HiInboxIn} as="div">
                   Posts
+                </Sidebar.Item>
+              </Link>
+            </div>
+            <div className="mb-4">
+              <Link to="/dashboard?tab=comments">
+                <Sidebar.Item active={tab === "comments"} icon={FaComment} as="div">
+                  Comments
                 </Sidebar.Item>
               </Link>
             </div>
