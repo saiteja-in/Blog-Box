@@ -17,7 +17,7 @@ export const HoverEffect = ({ items, className }) => {
         {items.map((item, idx) => (
           <Link
           to={`/post/${item.slug}`}
-          key={item._id} 
+          key={idx} 
           className="relative group block p-2 h-full w-full"
           onMouseEnter={() => {
             setHoveredIndex(idx);
@@ -103,10 +103,9 @@ export const CardDescription = ({ className, children }) => {
         className
       )}
     >
-      <p className="p-1 text-base dark:text-gray-400 text-gray-900 text-center max-w-4xl mx-auto w-full post-content line-clamp-1">
-        {/* Assuming `item.content` is already sanitized or trusted HTML */}
+      <div  className="p-1 text-base dark:text-gray-400 text-gray-900 text-center max-w-4xl mx-auto w-full post-content line-clamp-1">
         {children}
-      </p>
+      </div>
     </div>
   );
 };
