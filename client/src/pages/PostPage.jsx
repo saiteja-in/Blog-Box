@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "./Spinner.css";
 import { Button } from "flowbite-react";
-import CallToAction from "../components/CallToAction";
 import CommentSection from "../components/CommentSection";
-import { HoverEffect } from "../components/UI/CardHoverEffect";
 import PostCard from "../components/PostCard";
 
 const PostPage = () => {
@@ -30,7 +28,7 @@ const PostPage = () => {
           setPosts(data.posts[0]);
           setLoading(false);
           setError(false);
-          
+
         }
         // console.log(data.posts[0]);
       } catch (error) {
