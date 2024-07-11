@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import TextGenerate from "../components/UI/TextGenerate";
 import { useSelector } from "react-redux";
 import { HoverEffect } from "../components/UI/CardHoverEffect";
-
+import { LampContainer } from "../components/UI/lamp";
+import { motion } from "framer-motion";
 
 
 const Home = () => {
@@ -30,6 +31,9 @@ const Home = () => {
 
     <div className=" p-10 text-center">
       <TextGenerate words={words} />
+    </div>
+    <div>
+    
     </div>
     <div className="dark:bg-black ">
     <div className="text-center text-5xl ">
