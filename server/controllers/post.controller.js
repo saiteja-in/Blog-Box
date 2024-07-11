@@ -23,7 +23,7 @@ export const createPost = async (req, res,next) => {
         res.status(201).json(savedPost);
         console.log(savedPost);
     }catch(error){
-        next(error);
+      next(error);
     }
 };
 
