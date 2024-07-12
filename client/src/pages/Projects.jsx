@@ -2,7 +2,7 @@ import React from 'react'
 
 const Projects = () => {
   return (
-    <div>
+    <div className='min-h-screen dark:bg-black'>
       projects
     </div>
   )
