@@ -114,6 +114,7 @@ const CreatePost = () => {
             <Select id="category" label="Category" onChange={(e) => setFormData({ ...formData, category: e.target.value })}>
               <option value="uncategorized">select a category</option>
               <option value="movies">Movies</option>
+              <option value="dump">Dump</option>
               <option value="tvshows">TV Shows</option>
               <option value="sports">Sports</option>
               <option value="technology">Technology</option>
