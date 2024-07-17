@@ -4,8 +4,10 @@ import "./Spinner.css";
 import { Button } from "flowbite-react";
 import CommentSection from "../components/CommentSection";
 import PostCard from "../components/PostCard";
+import { useSelector } from "react-redux";
 
 const PostPage = () => {
+  const {currentUser}=useSelector((state)=>state.user)
   const { postSlug } = useParams();
   const [loading, setLoading] = useState(true);
   const [post, setPosts] = useState(null);
@@ -45,7 +47,7 @@ const PostPage = () => {
       const fetchRecentPosts = async () => {
         const res = await fetch(`/api/post/getposts?limit=2`);
         const data = await res.json();
-        console.log(data);
+        console.log(currentUser);
         if (res.ok) {
           setRecentPosts(data.posts);
         }
@@ -71,7 +73,7 @@ const PostPage = () => {
 
   return (
     <main className=" dark:bg-gray-900 p-3 flex flex-col max-w-6xl mx-auto min-h-screen">
-      <h1 className='text-3xl mt-10 p-3 text-center font-serif max-w-2xl mx-auto lg:text-4xl'>
+      <h1 className='text-5xl mt-6 p-3 text-center font-serif max-w-2xl mx-auto lg:text-4xl'>
         {post && post.title}
       </h1>
       <Link
@@ -97,10 +99,10 @@ const PostPage = () => {
               </button>
       </Link>
       <img
-        src={post && post.image}
-        alt={post && post.title}
-        className='mt-10 p-3 max-h-[700px] max-w-[700px] w-full object-cover mx-auto'
-      />
+  src={post && post.image}
+  alt={post && post.title}
+  className="mt-7 p-3 max-h-[500px] max-w-[500px] w-full h-auto object-contain mx-auto"
+/>
       <div className='flex justify-between p-3 border-b border-slate-500 mx-auto w-full max-w-4xl text-xs'>
         <span>{post && new Date(post.createdAt).toLocaleDateString()}</span>
         <span className='italic'>

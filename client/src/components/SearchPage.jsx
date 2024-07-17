@@ -78,7 +78,7 @@ const SearchPage = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row dark:bg-black">
+    <div className=" flex flex-col md:flex-row dark:bg-black">
       <div className="p-6 border-b md:border-r md:min-h-screen border-gray-500">
         <form className="flex flex-col gap-8" onSubmit={handleSubmit}>
           <div className="flex items-center gap-2">
