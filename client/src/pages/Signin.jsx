@@ -75,6 +75,7 @@ const Signin = () => {
     <div>
       <div>
         <Toaster position="top-center" reverseOrder={false} />
+        
       </div>
       {/* <section className="bg-white "> */}
         <div className=" grid grid-cols-1 lg:grid-cols-2 ">
