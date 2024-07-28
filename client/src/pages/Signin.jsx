@@ -191,12 +191,12 @@ const Signin = () => {
               />
 
               <div className="w-full max-w-md mx-auto xl:max-w-xl">
-                <h3 className="text-2xl font-bold text-center text-black">
-                  Write your own blog
+                <h3 className="text-4xl font-bold text-center text-black">
+                Blog Beyond Boundaries
                 </h3>
-                <p className="leading-relaxed text-center text-gray-500 mt-2.5">
+                {/* <p className="leading-relaxed text-center text-gray-500 mt-2.5">
                   hasta la vista
-                </p>
+                </p> */}
               </div>
             </div>
           </div>
