@@ -9,6 +9,10 @@ export default {
         customB: "#FF3EA5",
         customC: "#FF7ED4",
         customD: "#FFB5DA",
+        beige: "hsl(48deg 33.33% 97.06%)",
+      },
+      fontFamily: {
+        mono: ["monospace"],
       },
     },
   },

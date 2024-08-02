@@ -1,0 +1,80 @@
+:root {
+    --bg-color: #141414;
+    --font-size: 62.5%;
+    --font-family: monospace;
+    --text-color: white;
+    --marquee-speed: 10s;
+    --marquee-speed-reverse: 20s;
+    --rotate-angle: 12deg;
+    --padding: 2rem 0;
+    --font-size-large: 4rem;
+    --font-size-small: 2rem;
+    --padding-small: 0.5rem 1.5rem;
+    --move-up: -2rem; /* Adjust this value to move the component up */
+  }
+  
+  .about-root {
+    background-color: var(--bg-color);
+    font-size: var(--font-size);
+    font-family: var(--font-family);
+  }
+  
+  .fadeout-horizontal {
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 5rem,
+      black calc(100% - 5rem),
+      transparent
+    );
+  }
+  
+  .center-content {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    margin-top: var(--move-up); /* Move the component up */
+  }
+  
+  .wrapper {
+    padding: var(--padding);
+    width: 100%;
+    color: var(--text-color);
+    font-size: var(--font-size-large);
+  }
+  
+  .rotate-left {
+    transform: rotate(-var(--rotate-angle));
+  }
+  
+  .rotate-right {
+    transform: rotate(var(--rotate-angle));
+  }
+  
+  .marquee-text {
+    overflow: clip;
+  }
+  
+  .marquee-text-track {
+    display: flex;
+    padding-left: 2.4rem;
+    gap: 2.4rem;
+    width: max-content;
+    animation: marquee-move-text var(--marquee-speed) linear infinite
+      var(--direction, forwards);
+  }
+  
+  .marquee-text p {
+    border: 1px solid var(--text-color);
+    background-color: var(--bg-color);
+    border-radius: 999px;
+    padding: var(--padding-small);
+    font-size: var(--font-size-small);
+  }
+  
+  @keyframes marquee-move-text {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  
