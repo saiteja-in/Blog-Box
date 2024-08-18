@@ -9,7 +9,12 @@ export const HoverEffect = ({ items, className }) => {
   const handleButton = () => {};
 
   return (
-    <div className={cn("grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10", className)}>
+    <div
+      className={cn(
+        "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10",
+        className
+      )}
+    >
       {items.map((item, idx) => (
         <Link
           to={`/post/${item.slug}`}
@@ -27,11 +32,16 @@ export const HoverEffect = ({ items, className }) => {
                 layoutId="hoverBackground"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1, transition: { duration: 0.15 } }}
-                exit={{ opacity: 0, transition: { duration: 0.15, delay: 0.2 } }}
+                exit={{
+                  opacity: 0,
+                  transition: { duration: 0.15, delay: 0.2 },
+                }}
               />
             )}
           </AnimatePresence>
-          <Card className="bg-blue-100 relative z-10"> {/* Ensure z-index is lower */}
+          <Card className="bg-blue-100 relative z-10">
+            {" "}
+            {/* Ensure z-index is lower */}
             <motion.img
               src={item.image}
               alt="post cover"
@@ -42,31 +52,30 @@ export const HoverEffect = ({ items, className }) => {
             />
             <CardTitle className="text-2xl text-center">{item.title}</CardTitle>
             <div className="flex justify-center pt-2">
-            <button
-  onClick={handleButton}
-  className="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6 text-white inline-block"
->
-  <span className="absolute inset-0 overflow-hidden rounded-full">
-    <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
-  </span>
-  <div className="relative flex space-x-2 items-center z-10 rounded-full bg-zinc-950 py-0.5 px-4 ring-1 ring-white/10">
-    <span>{item.category}</span>
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="w-4 h-4"
-    >
-      <path d="M10.75 8.75L14.25 12L10.75 15.25" />
-    </svg>
-  </div>
-  <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40"></span>
-</button>
-
+              <button
+                onClick={handleButton}
+                className="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6 text-white inline-block"
+              >
+                <span className="absolute inset-0 overflow-hidden rounded-full">
+                  <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
+                </span>
+                <div className="relative flex space-x-2 items-center z-10 rounded-full bg-zinc-950 py-0.5 px-4 ring-1 ring-white/10">
+                  <span>{item.category}</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="w-4 h-4"
+                  >
+                    <path d="M10.75 8.75L14.25 12L10.75 15.25" />
+                  </svg>
+                </div>
+                <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40"></span>
+              </button>
             </div>
             <CardDescription>
               <div
@@ -108,7 +117,12 @@ export const Card = ({ className, children }) => {
 
 export const CardTitle = ({ className, children }) => {
   return (
-    <h4 className={cn("dark:text-zinc-100 font-bold tracking-wide mt-4", className)}>
+    <h4
+      className={cn(
+        "dark:text-zinc-100 font-bold tracking-wide mt-4",
+        className
+      )}
+    >
       {children}
     </h4>
   );
@@ -116,7 +130,12 @@ export const CardTitle = ({ className, children }) => {
 
 export const CardDescription = ({ className, children }) => {
   return (
-    <div className={cn("mt-8 dark:text-zinc-600 tracking-wide leading-relaxed text-sm", className)}>
+    <div
+      className={cn(
+        "mt-8 dark:text-zinc-600 tracking-wide leading-relaxed text-sm",
+        className
+      )}
+    >
       <div className="p-1 text-base dark:text-gray-400 text-gray-900 text-center max-w-4xl mx-auto w-full post-content line-clamp-1">
         {children}
       </div>

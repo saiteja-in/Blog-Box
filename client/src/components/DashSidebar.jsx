@@ -103,24 +103,6 @@ const DashSidebar = () => {
           <Sidebar.Item onClick={handleSignout} icon={HiArrowSmRight}>
             Sign Out
           </Sidebar.Item>
-          <Sidebar.Item
-            icon={HiViewBoards}
-            label="Pro"
-            labelColor="dark"
-            as="div"
-          >
-            Kanban
-          </Sidebar.Item>
-          <Sidebar.Item icon={HiInbox} label="3" as="div">
-            Inbox
-          </Sidebar.Item>
-          <Sidebar.Item icon={HiShoppingBag} as="div">
-            Products
-          </Sidebar.Item>
-          {/* <Sidebar.Item icon={HiArrowSmRight} as="div">Sign In</Sidebar.Item> */}
-          <Sidebar.Item icon={HiTable} as="div">
-            Sign Up
-          </Sidebar.Item>
         </Sidebar.ItemGroup>
       </Sidebar.Items>
     </Sidebar>
