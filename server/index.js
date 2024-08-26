@@ -16,13 +16,15 @@ mongoose
     console.log(err);
   });
 const app = express();
+//used to parse the incoming json requests
 app.use(express.json());
+//parse the imcoming cookies
 app.use(cookieParser())
 
 const PORT = process.env.PORT
 
-app.use("/api/user",userRoute);
 app.use("/api/auth",authRoute);
+app.use("/api/user",userRoute);
 app.use("/api/post",postRoute);
 app.use("/api/comment",commentRoute);
 

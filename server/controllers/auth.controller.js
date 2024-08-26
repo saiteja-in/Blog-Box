@@ -49,6 +49,7 @@ export const signin = async (req, res, next) => {
       { id: user._id, email: user.email, username: user.username ,isAdmin:user.isAdmin},
       process.env.JWT_SECRET
     );
+    // This line is using destructuring to create a new object `rest` that includes all properties of `user._doc` except for `password`, which is renamed to `pass` and not included in `rest`.
     const { password: pass, ...rest } = user._doc;
     res
       .status(200)
