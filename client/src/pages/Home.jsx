@@ -5,7 +5,9 @@ import { HoverEffect } from "../components/UI/CardHoverEffect";
 import { LampContainer } from "../components/UI/lamp";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import {FaGithub} from "react-icons/fa"
 import { TypewriterEffect, TypewriterEffectSmooth } from "../components/UI/TypeWriter";
+import AboutProject from "./AboutProject";
 
 const Home = () => {
   const { currentUser } = useSelector((state) => state.user);
@@ -70,6 +72,8 @@ const Home = () => {
             </span>
           </Link>
         </div>
+            <AboutProject />
+
         </div>
     </div>
   );

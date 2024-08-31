@@ -1,10 +1,16 @@
+import { FaGit, FaGithub, FaGithubAlt, FaGithubSquare, FaTwitter } from "react-icons/fa";
 import "./styles123.css";
+import { Code2, CodeIcon, Mail, MailIcon, Twitter, X, XCircle } from "lucide-react";
 
 function About() {
   return (
     <>
       <div className="dark:bg-black text-3xl text-center py-4">
       There's a fine line between fishing and standing on the shore like an idiot. ~ Steven Wright
+      </div>
+      <div className="flex items-center flex-col justify-around">
+      <a href="https://github.com/saiteja-in/Blog-Box" target="_blank" rel="noopener noreferrer"><FaGithub size={90}/></a>
+      <div className="font-mono">pet me</div>
       </div>
     <div className="dark:bg-black center-content min-h-screen">
       <div className="wrapper">
