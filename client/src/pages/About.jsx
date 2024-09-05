@@ -8,7 +8,7 @@ function About() {
       <div className="dark:bg-black text-3xl text-center py-4">
       There's a fine line between fishing and standing on the shore like an idiot. ~ Steven Wright
       </div>
-      <div className="flex items-center flex-col justify-around">
+      <div className="flex items-center dark:bg-black flex-col justify-around">
       <a href="https://github.com/saiteja-in/Blog-Box" target="_blank" rel="noopener noreferrer"><FaGithub size={90}/></a>
       <div className="font-mono">pet me</div>
       </div>
