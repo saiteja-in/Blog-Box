@@ -18,7 +18,7 @@ const OAuth = () => {
     });
     try {
         const resultsFromGoogle=await signInWithPopup(auth,provider);
-        console.log(resultsFromGoogle);
+        //console.log(resultsFromGoogle);
         const res=await fetch('/api/auth/google',{
             method:'POST',
             headers: {
@@ -39,7 +39,7 @@ const OAuth = () => {
             toast.success('Redirecting to Home Page');
             setTimeout(()=>{
                 navigate('/');
-            },2000);
+            },300);
         }
 
     } catch (error) {

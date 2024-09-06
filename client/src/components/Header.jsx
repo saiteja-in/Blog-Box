@@ -1,4 +1,4 @@
-import { Navbar, TextInput, Button, Dropdown, Avatar, DropdownDivider } from "flowbite-react";
+import { Navbar, TextInput, Button, Dropdown, Avatar} from "flowbite-react";
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { MdOutlineLightMode } from "react-icons/md";
@@ -14,7 +14,7 @@ const Header = () => {
   const { theme } = useSelector((state) => state.theme);
   const [searchTerm, setSearchTerm] = useState("");
   const { currentUser } = useSelector((state) => state.user);
-  const path = useLocation().pathname;
+  const path = useLocation().pathname; //gets the param from the url(/signup , /about)
   const navigate = useNavigate();
   const location = useLocation();
 

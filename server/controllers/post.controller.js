@@ -6,6 +6,7 @@ export const createPost = async (req, res,next) => {
     return next(errorHandler(403, "you are not allowed to create a post"));
   if (!req.body.title || !req.body.content)
     return next(errorHandler(400, "Title and content are required"));
+  console.log(req.body)
   const slug = req.body.title
     .split(" ")
     .join("-")

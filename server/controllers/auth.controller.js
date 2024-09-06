@@ -31,33 +31,27 @@ export const signup = async (req, res, next) => {
 export const signin = async (req, res, next) => {
   const { email, password } = req.body;
   if (!email || !password || email === "" || password === "") {
-    next(errorHandler(400, "All fields are required"));
-    return;
+    return next(errorHandler(400, "All fields are required"));
   }
   try {
     const user = await User.findOne({ email });
     if (!user) {
-      next(errorHandler(400, "User not found"));
-      return;
+      return next(errorHandler(400, "User not found"));
     }
     const passwordMatch = bcryptjs.compareSync(password, user.password);
     if (!passwordMatch) {
-      next(errorHandler(400, "Invalid credentials"));
-      return;
+      return next(errorHandler(400, "Invalid credentials"));
     }
     const token = jwt.sign(
-      { id: user._id, email: user.email, username: user.username ,isAdmin:user.isAdmin},
+      { id: user._id, email: user.email},
       process.env.JWT_SECRET
     );
-    // This line is using destructuring to create a new object `rest` that includes all properties of `user._doc` except for `password`, which is renamed to `pass` and not included in `rest`.
     const { password: pass, ...rest } = user._doc;
     res
       .status(200)
-      .cookie("teja_token", token) 
+      .cookie("teja_token", token,{ httpOnly: true }) 
       .json({ message: "User logged in successfully", user: rest });
-    // res.status(200).json({message:"User logged in successfully",user});
   } catch (error) {
-    // console.log(error)
     next(error);
   }
 };

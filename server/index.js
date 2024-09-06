@@ -16,7 +16,7 @@ mongoose
     console.log(err);
   });
 const app = express();
-//used to parse the incoming json requests
+//used to send the incoming json requests, without this we cannot send json in requests
 app.use(express.json());
 //parse the imcoming cookies
 app.use(cookieParser())
