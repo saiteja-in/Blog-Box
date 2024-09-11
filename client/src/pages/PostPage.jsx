@@ -72,7 +72,7 @@ const PostPage = () => {
     );
 
   return (
-    <main className=" dark:bg-gray-900 p-3 flex flex-col max-w-6xl mx-auto min-h-screen">
+    <main className=" dark:bg-black p-3 flex flex-col max-w-6xl mx-auto min-h-screen">
       <h1 className='text-5xl mt-6 p-3 text-center font-serif max-w-2xl mx-auto lg:text-4xl'>
         {post && post.title}
       </h1>

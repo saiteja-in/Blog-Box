@@ -37,7 +37,7 @@ const SignUp = () => {
           },
         });
         setTimeout(() => {
-          navigate("/");
+          navigate("/sign-in");
         }, 300);
       }
       if (data.success === false) {
