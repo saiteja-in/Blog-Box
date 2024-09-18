@@ -48,9 +48,9 @@ const Home = () => {
 
   return (
     <div className="min-h-screen dark:bg-black">
-      <div className="p-10 text-center">
+      {/* <div className="p-10 text-center">
         <TextGenerate words={words} />
-      </div>
+      </div> */}
       <div className="flex justify-center p-2">
       <TypewriterEffectSmooth words={wordss} />
       </div>
