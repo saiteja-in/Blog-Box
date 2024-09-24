@@ -7,7 +7,7 @@ const AboutProject = () => {
 
         <div className="flex flex-row justify-center items-center gap-2">
         <div>More Details About the Project</div>
-        <a href="https://github.com/saiteja-in/Blog-Box" target="_blank" rel="noopener noreferrer"><FaGithub size={40}/></a>
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer"><FaGithub size={40}/></a>
       </div>
 </div>
   )

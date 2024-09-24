@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="text-center xl:flex xl:items-center xl:justify-between xl:text-left">
             <div className="xl:flex xl:items-center xl:justify-start">
                 <h2 className="text-2xl font-bold text-white font-poppins">Sai Teja's Blog</h2>
-                <a href="https://github.com/saiteja-in" className="mt-5 text-sm text-white xl:ml-6 xl:mt-0">© Copyright {new Date().getFullYear()} Sai Teja</a>
+                <a href="https://github.com/" className="mt-5 text-sm text-white xl:ml-6 xl:mt-0">© Copyright {new Date().getFullYear()} Sai Teja</a>
             </div>
 
             <div className="items-center mt-8 xl:mt-0 xl:flex xl:justify-end xl:space-x-8">

@@ -11,7 +11,7 @@ const Projects = () => {
       </div>
       <div className="flex flex-col justify-center items-center">
         <div>more here</div>
-        <a href="https://github.com/saiteja-in" target="_blank" rel="noopener noreferrer"><FaGithub size={40}/></a>
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer"><FaGithub size={40}/></a>
       </div>
       
 {/*      
