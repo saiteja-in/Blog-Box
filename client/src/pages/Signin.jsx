@@ -8,20 +8,25 @@ import {
   signInSuccess,
   signInFailure,
 } from "../redux/user/userSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import OAuth from "../components/OAuth";
 import { useForm } from "react-hook-form";
+import light1 from "../../public/1.json";
+import dark1 from "../../public/10.json";
+import Lottie from "lottie-react";
+import { SparklesText } from "../components/UI/text1";
 
 const Signin = () => {
+  const { theme } = useSelector((state) => state.theme);
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm({
-    defaultValues:{
-      email:"",
-      password:""
-    }
+    defaultValues: {
+      email: "",
+      password: "",
+    },
   });
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -76,12 +81,12 @@ const Signin = () => {
       </div>
       {/* <section className="bg-white "> */}
       <div className=" grid grid-cols-1 lg:grid-cols-2 ">
-        <div className="flex items-center justify-center px-4 py-10 bg-white sm:px-6 lg:px-8 sm:py-16 lg:py-24">
+        <div className="flex items-center justify-center px-4 py-10  sm:px-6 lg:px-8 sm:py-16 lg:py-24">
           <div className="xl:w-full xl:max-w-sm 2xl:max-w-md xl:mx-auto py-10">
-            <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl">
+            <h2 className="text-3xl font-bold leading-tight  sm:text-4xl">
               Sign in
             </h2>
-            <p className="mt-2 text-base text-gray-600">
+            <p className="mt-2 text-base ">
               Don’t have an account?{" "}
               <a
                 href="/sign-up"
@@ -97,7 +102,7 @@ const Signin = () => {
                 <div>
                   <label
                     htmlFor="email"
-                    className="text-base font-medium text-gray-900"
+                    className="text-base font-medium "
                   >
                     Email address
                   </label>
@@ -113,7 +118,7 @@ const Signin = () => {
                           value.includes("@") && value.includes("."),
                       })}
                       placeholder="Enter email to get started"
-                      className="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
+                      className="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md  focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
                     />
                     {errors.email && (
                       <div className="text-red-500">{errors.email.message}</div>
@@ -125,7 +130,7 @@ const Signin = () => {
                   <div className="flex items-center justify-between">
                     <label
                       htmlFor="password"
-                      className="text-base font-medium text-gray-900"
+                      className="text-base font-medium "
                     >
                       Password
                     </label>
@@ -151,7 +156,7 @@ const Signin = () => {
                         },
                       })}
                       placeholder="Enter your password"
-                      className="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
+                      className="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md  focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
                     />
                     {errors.password && (
                       <div className="text-red-500">
@@ -181,22 +186,22 @@ const Signin = () => {
           </div>
         </div>
 
-        <div className="flex items-center justify-center px-4 py-10 sm:py-16 lg:py-24 bg-gray-50 sm:px-6 lg:px-8">
-          <div>
-            <img
-              className="w-full mx-auto"
-              src={blog}
-              alt=""
-              style={{ maxWidth: "400px" }} // Set maximum width to 300px
-            />
+        <div className="flex flex-col gap-3 items-center justify-center">
+  <div className="lg:w-3/4 relative animate-float -mt-4"> {/* Moved Lottie slightly upwards by adding negative margin */}
+    <Lottie
+      animationData={theme === "dark" ? dark1 : light1}
+      loop={true}
+      className="w-full h-auto max-w-2xl mx-auto"
+      style={{ maxWidth: "800px", width: "100%" }}
+    />
+  </div>
 
-            <div className="w-full max-w-md mx-auto xl:max-w-xl">
-              <h3 className="text-4xl font-bold text-center text-black">
-                Blog Beyond Boundaries
-              </h3>
-            </div>
-          </div>
-        </div>
+  <div className="w-full max-w-md mx-auto text-center xl:max-w-xl">
+    <SparklesText text="Blog outside the box" className="text-xl md:text-2xl" /> {/* Reduced font size */}
+  </div>
+</div>
+
+
       </div>
     </div>
   );
