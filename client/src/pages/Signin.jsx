@@ -19,8 +19,8 @@ const Signin = () => {
     formState: { errors, isSubmitting },
   } = useForm({
     defaultValues:{
-      email:"test@gmail.com",
-      password:"test12345"
+      email:"",
+      password:""
     }
   });
   const navigate = useNavigate();

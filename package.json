@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "nodemon server/index.js",
     "start": "node server/index.js",
-    "build":"npm install && npm install --prefix client && npm run build --prefix client"
+    "build": "npm install && npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +19,8 @@
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.436.0",
-    "mongoose": "^8.4.3"
+    "mongoose": "^8.4.3",
+    "recharts": "^2.13.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.4"
