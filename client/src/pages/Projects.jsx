@@ -10,7 +10,7 @@ const Projects = () => {
       <div className="p-10">
 
       <SparklesText text="what is happening right now" />
-      <h1>this is in the new branch</h1>
+      <h1>branch A</h1>
       </div>
     </div>
     </>
