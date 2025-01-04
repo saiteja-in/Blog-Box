@@ -88,20 +88,11 @@ const Projects = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-black">
-      <div className="container mx-auto px-4 py-16">
-        <div className="text-center mb-16">
-          <SparklesText text="My Projects" />
-          <p className="mt-4 text-xl text-gray-600 dark:text-gray-400">
-            Explore some of my recent work and side projects
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <ProjectCard key={index} {...project} />
-          ))}
-        </div>
+    <>
+    <div className=" min-h-screen dark:bg-black flex justify-center">
+      <div className="p-10">
+
+      <SparklesText text="Coming Soon" />
       </div>
     </div>
   );
