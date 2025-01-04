@@ -9,8 +9,7 @@ const Projects = () => {
     <div className=" min-h-screen dark:bg-black flex justify-center">
       <div className="p-10">
 
-      <SparklesText text="what is happening right now" />
-      <h1>branch A</h1>
+      <SparklesText text="Coming soon" />
       </div>
     </div>
     </>
