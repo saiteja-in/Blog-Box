@@ -21,7 +21,7 @@ const CommentSection = ({ postId }) => {
       return;
     }
     if (comment.length == 0) {
-      setCommentError("Dont be a dick, add a comment and submit");
+      setCommentError("Add a comment and submit");
       return;
     }
     try {
@@ -45,7 +45,7 @@ const CommentSection = ({ postId }) => {
         setCommentError(null);
       }
       if (!res.ok) {
-        setCommentError("Dont be a dick, add a comment and submit");
+        setCommentError("Add a comment and submit");
       }
     } catch (error) {
       setCommentError(error.message);
