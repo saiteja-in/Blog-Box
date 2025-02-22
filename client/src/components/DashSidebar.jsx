@@ -42,13 +42,13 @@ const DashSidebar = () => {
       const data = await res.json();
       if (!res.ok) {
         // toast.error(data.message)
-        console.log(data.message);
+        // console.log(data.message);
       } else {
         dispatch(signoutSuccess());
       }
     } catch (error) {
       // toast.error(error.message)
-      console.log(error.message);
+      // console.log(error.message);
     }
   };
   return (

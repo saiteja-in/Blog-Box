@@ -22,7 +22,7 @@ const TextGenerate = ({ words, className }) => {
         }
       );
     } else {
-      console.log("No scope element found or no children to animate.");
+      // console.log("No scope element found or no children to animate.");
     }
   }, [scopeRef.current, words]);
 

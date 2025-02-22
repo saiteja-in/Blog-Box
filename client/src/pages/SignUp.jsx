@@ -28,7 +28,7 @@ const SignUp = () => {
         },
       });
       const data = await res.json();
-      console.log(data);
+      // console.log(data);
       if (data.message === "User created successfully") {
         toast.success("Account created successfully");
         toast.success("Redirecting to Login Page.", {

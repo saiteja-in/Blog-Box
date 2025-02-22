@@ -38,12 +38,12 @@ const Header = () => {
       });
       const data = await res.json();
       if (!res.ok) {
-        console.log(data.message);
+        // console.log(data.message);
       } else {
         dispatch(signoutSuccess());
       }
     } catch (error) {
-      console.log(error.message);
+      // console.log(error.message);
     }
   };
 

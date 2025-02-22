@@ -47,14 +47,14 @@ const PostPage = () => {
       const fetchRecentPosts = async () => {
         const res = await fetch(`/api/post/getposts?limit=2`);
         const data = await res.json();
-        console.log(currentUser);
+        // console.log(currentUser);
         if (res.ok) {
           setRecentPosts(data.posts);
         }
       };
       fetchRecentPosts();
     } catch (error) {
-      console.log(error.message);
+      // console.log(error.message);
     }
   }, []);
 

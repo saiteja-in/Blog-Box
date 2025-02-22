@@ -22,7 +22,7 @@ export default function Footer({
   // const copyright = { text: "© 2023 Your Company", license: "License Info" }; // Example definition
 
   return (
-    <footer className="pb-6 pt-16 lg:pb-8 lg:pt-16">
+    <footer className="pb-6 lg:pb-8 ">
       <div className="px-4 lg:px-8 pt-6 border-t border-gray-700 ">
         <div className="md:flex md:items-start md:justify-between">
           <a

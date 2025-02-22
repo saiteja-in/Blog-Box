@@ -31,7 +31,7 @@ export default function DashDashboard() {
           setLastMonthUsers(data.lastMonthUsers);
         }
       } catch (error) {
-        console.log(error.message);
+        // console.log(error.message);
       }
     };
     const fetchPosts = async () => {
@@ -44,7 +44,7 @@ export default function DashDashboard() {
           setLastMonthPosts(data.lastMonthPosts);
         }
       } catch (error) {
-        console.log(error.message);
+        // console.log(error.message);
       }
     };
     const fetchComments = async () => {
@@ -57,7 +57,7 @@ export default function DashDashboard() {
           setLastMonthComments(data.lastMonthComments);
         }
       } catch (error) {
-        console.log(error.message);
+        // console.log(error.message);
       }
     };
     if (currentUser.isAdmin) {

@@ -11,10 +11,10 @@ dotenv.config();
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
-    console.log("connected to mongoose");
+    // console.log("connected to mongoose");
   })
   .catch((err) => {
-    console.log(err);
+    // console.log(err);
   });
 const __dirname = path.resolve()
 const app = express();

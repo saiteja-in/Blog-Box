@@ -19,7 +19,7 @@ const Comment = ({ comment, onLike,onEdit,onDelete }) => {
           setUser(data);
         }
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       }
     };
     getUser();
@@ -44,7 +44,7 @@ const Comment = ({ comment, onLike,onEdit,onDelete }) => {
         onEdit(comment, editedContent);
       }
     } catch (error) {
-      console.log(error.message);
+      // console.log(error.message);
     }
   };
 

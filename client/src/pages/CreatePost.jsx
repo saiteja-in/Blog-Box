@@ -58,12 +58,13 @@ const CreatePost = () => {
     } catch (error) {
       setImageUploadError("image upload error");
       setImageUploadProgress(null);
-      console.log(error);
+      // console.log(error);
     }
   };
   const handleSubmit =async (e) => {
     e.preventDefault();
     try {
+      // console.log("form data",formData)
         setPublishLoading(true)
         const res=await fetch('/api/post/create-post',{
             method:'POST',
@@ -73,7 +74,7 @@ const CreatePost = () => {
             body:JSON.stringify(formData)
         })
         const data=await res.json()
-        console.log(data)
+        // console.log(data)
         if(!res.ok){
             setPublishError(data.message)
             setPublishLoading(false)

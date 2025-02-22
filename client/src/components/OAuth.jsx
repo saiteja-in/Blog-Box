@@ -31,10 +31,10 @@ const OAuth = () => {
             }),
         })
         const data=await res.json();
-        console.log(data);
+        // console.log(data);
         if(res.ok){
             dispatch(signInSuccess(data.user));
-            console.log(data)
+            // console.log(data)
             toast.success('Logged in successfully');
             toast.success('Redirecting to Home Page');
             setTimeout(()=>{
@@ -44,7 +44,7 @@ const OAuth = () => {
 
     } catch (error) {
         toast.error('Something went wrong');
-        console.log(error);
+        // console.log(error);
     }
 
     

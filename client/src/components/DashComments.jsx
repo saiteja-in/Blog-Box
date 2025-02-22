@@ -24,7 +24,7 @@ export default function DashComments() {
           }
         }
       } catch (error) {
-        console.log(error.message);
+        // console.log(error.message);
       }
     };
 
@@ -50,7 +50,7 @@ export default function DashComments() {
         }
       }
     } catch (error) {
-      console.log(error.message);
+      // console.log(error.message);
     }
   };
 
@@ -70,10 +70,10 @@ export default function DashComments() {
         );
         setShowModal(false);
       } else {
-        console.log(data.message);
+        // console.log(data.message);
       }
     } catch (error) {
-      console.log(error.message);
+      // console.log(error.message);
     }
   };
 

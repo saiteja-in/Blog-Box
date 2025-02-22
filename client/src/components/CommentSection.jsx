@@ -12,7 +12,7 @@ const CommentSection = ({ postId }) => {
   const [like, setLike] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [commentToDelete, setCommentToDelete] = useState(null);
-  console.log(comments);
+  // console.log(comments);
   const [commentError, setCommentError] = useState(null);
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -41,7 +41,7 @@ const CommentSection = ({ postId }) => {
       if (res.ok) {
         setComment("");
         setA((prev) => !prev);
-        console.log(data);
+        // console.log(data);
         setCommentError(null);
       }
       if (!res.ok) {
@@ -59,10 +59,10 @@ const CommentSection = ({ postId }) => {
           const data = await res.json();
           setComments(data);
         } else {
-          console.log("failed to fetch comments");
+          // console.log("failed to fetch comments");
         }
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       }
     };
     getComments();
@@ -100,7 +100,7 @@ const CommentSection = ({ postId }) => {
         );
       }
     } catch (error) {
-      console.log(error.message);
+      // console.log(error.message);
     }
   };
   const handleDelete = async (commentId) => {
@@ -118,7 +118,7 @@ const CommentSection = ({ postId }) => {
         setComments(comments.filter((comment) => comment._id !== commentId));
       }
     } catch (error) {
-      console.log(error.message);
+      // console.log(error.message);
     }
   };
   return (

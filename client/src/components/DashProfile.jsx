@@ -89,7 +89,7 @@ const DashProfile = () => {
   // console.log(formData)
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    // console.log(formData);
     if (Object.keys(formData).length === 0) {
       return;
     }
@@ -98,7 +98,8 @@ const DashProfile = () => {
     }
     try {
       dispatch(updateStart());
-      console.log(currentUser._id);
+      // console.log(currentUser._id);
+      // console.log("form data",formData)
       const res = await fetch(`/api/user/update/${currentUser._id}`, {
         method: "PUT",
         body: JSON.stringify(formData),
@@ -113,7 +114,7 @@ const DashProfile = () => {
         return;
       }
 
-      console.log(data);
+      // console.log(data);
       if (!res.ok) {
         dispatch(updateFailure(data.message));
       } else {

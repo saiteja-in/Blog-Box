@@ -24,7 +24,7 @@ const DashPosts = () => {
           }
         }
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       }
     };
     if (currentUser.isAdmin) {
@@ -45,7 +45,7 @@ const DashPosts = () => {
         }
       }
     } catch (error) {
-      console.log(error.message);
+      // console.log(error.message);
     }
   };
   const handleDeletePost=async()=>{
@@ -56,16 +56,16 @@ const DashPosts = () => {
       });
       const data=await res.json();
       if(!res.ok){
-        console.log(data.message);
+        // console.log(data.message);
       }else{
         setUserPosts((prev)=>prev.filter((post)=>post._id!==postIdToDelete));
       }
-      console.log(data);
+      // console.log(data);
     } catch (error) {
-      console.log(error.message);
+      // console.log(error.message);
     }
     
-    console.log(data);
+    // console.log(data);
   }
   return (
     <div className="w-full p-3 overflow-x-scroll md:mx-auto p- scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500">
