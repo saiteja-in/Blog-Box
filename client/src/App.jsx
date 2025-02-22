@@ -7,12 +7,14 @@ import About from "./pages/About";
 import Dashboard from "./pages/Dashboard";
 import Projects from "./pages/Projects";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
+import Footer from "./components/Footer"
 import PrivateRoute from "./components/PrivateRoute";
 import OnlyAdminPrivateRoute from "./components/OnlyAdminPrivateRoute";
 import CreatePost from "./pages/CreatePost";
 import UpdatePost from "./pages/UpdatePost";
 import PostPage from "./pages/PostPage";
+import { Hexagon, Github, Twitter,Mail,LinkedinIcon } from "lucide-react"
 import ScrollToTop from "./components/ScrollToTop";
 import SearchPage from "./components/SearchPage";
 
@@ -45,7 +47,46 @@ const App = () => {
       <Route path='/post/:postSlug' element={<PostPage/>}/>    
       <Route path='/search' element={<SearchPage/>}/>    
     </Routes>
-    <Footer/>
+    <Footer
+        logo={<Hexagon className="h-10 w-10" />}
+        brandName="Sai Teja"
+        socialLinks={[
+          {
+            icon: <Twitter className="h-5 w-5" />,
+            href: "https://x.com",
+            label: "Twitter",
+          },
+          {
+            icon: <Github className="h-5 w-5" />,
+            href: "https://github.com/saiteja-in",
+            label: "GitHub",
+          },
+          {
+            icon: <Mail className="h-5 w-5" />,
+            href: "mailto:vurukondasaiteja13@gmail.com",
+            label: "Mail",
+          },
+          {
+            icon: <LinkedinIcon className="h-5 w-5" />,
+            href: "https://linkedin.com/in/vurukonda-sai-teja-279131201",
+            label: "LinkedIn",
+          },
+        ]}
+        mainLinks={[
+          { href: "/products", label: "Products" },
+          { href: "/about", label: "About" },
+          { href: "/blog", label: "Blog" },
+          { href: "/contact", label: "Contact" },
+        ]}
+        legalLinks={[
+          { href: "/privacy", label: "Privacy" },
+          { href: "/terms", label: "Terms" },
+        ]}
+        copyright={{
+          text: "© 2024 Awesome Corp",
+          license: "All rights reserved",
+        }}
+      />
     </BrowserRouter>
     </>
   )
