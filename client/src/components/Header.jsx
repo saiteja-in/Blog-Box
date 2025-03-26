@@ -59,7 +59,7 @@ const Header = () => {
       <Navbar className="border-b-2 bg-white dark:bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]">
         <Link
           to="/"
-          className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
+          className="self-center pl-8 whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
         >
           {/* <span className="px-2 py-1 bg-gradient-to-r from-customA via-customB via-customC to-customD rounded-lg text-white">
             Sai Teja's

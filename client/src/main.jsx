@@ -7,11 +7,13 @@ import { Provider } from "react-redux";
 import { persistor } from "./redux/store.js";
 import { PersistGate } from "redux-persist/integration/react";
 import ThemeProvider from "./components/ThemeProvider.jsx";
+import OnekoCat from "./components/onekocat.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <PersistGate loading={null} persistor={persistor}>
       <Provider store={store}>
         <ThemeProvider>
+          <OnekoCat/>
           <App />
         </ThemeProvider>
       </Provider>
