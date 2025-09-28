@@ -24,7 +24,7 @@ app.use(express.json());
 app.use(cookieParser())
 
 const PORT = process.env.PORT
-
+app.get("/health",async(req,res)=>{res.json({healthy:"yes"})})
 app.use("/api/auth",authRoute);
 app.use("/api/user",userRoute);
 app.use("/api/post",postRoute);
